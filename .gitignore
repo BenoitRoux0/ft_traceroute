@@ -1,0 +1,6 @@
+true_traceroute
+ft_traceroute
+ft_traceroute_bonus
+**/*.o
+inetutils*
+.idea
