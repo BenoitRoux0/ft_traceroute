@@ -44,7 +44,13 @@ typedef struct trc_s {
 # define UDP_SEND_SOCKET (socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))
 # define ICMP_RECV_SOCKET (socket(AF_INET, SOCK_RAW, IPPROTO_ICMP))
 
-int traceroute_loop(trc_t* trc);
-struct addrinfo* parse_host(char* name);
+int                 traceroute_loop(trc_t* trc);
+struct addrinfo*    parse_host(char* name);
+int                 send_probe(trc_t* trc, struct sockaddr* sockaddr, socklen_t* len);
+int                 put_time(trc_t* trc);
+int                 put_num_host(const struct sockaddr* sockaddr, socklen_t len);
+void                ft_bzero(void* ptr, size_t n);
+double              get_time_diff(trc_t *trc);
+void                clear_trc(trc_t *trc);
 
 #endif

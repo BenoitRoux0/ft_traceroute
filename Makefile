@@ -2,6 +2,8 @@ NAME = ft_traceroute
 
 SRCS = 	src/main.c \
 		src/traceroute/loop.c \
+		src/traceroute/send_probe.c \
+		src/utils.c \
 		src/parse_host.c \
 
 INCS = inc/ft_traceroute.h
