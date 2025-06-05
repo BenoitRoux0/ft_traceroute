@@ -5,8 +5,9 @@ static ulong parse_ulong(const struct argp_state *state, const char* arg, ulong 
 int parse_opt(int key, char* arg, struct argp_state* state) {
     trc_t*  trc = state->input;
 
-    if (trc->parse_failed)
+    if (trc->parse_failed) {
         return 0;
+    }
 
     switch (key) {
         case ARGP_KEY_ARG:
@@ -18,8 +19,8 @@ int parse_opt(int key, char* arg, struct argp_state* state) {
         case 'p':
             trc->opts.port = parse_ulong(state, arg, UINT16_MAX);
             break;
-        case 't':
-            trc->opts.tries = parse_ulong(state, arg, UINT_MAX);
+        case 'q':
+            trc->opts.tries = parse_ulong(state, arg, 10);
             break;
         case 'w':
             trc->opts.wait = parse_ulong(state, arg, UINT_MAX);

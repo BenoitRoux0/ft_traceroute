@@ -14,7 +14,7 @@ int init_trc(int ac, char **av, trc_t* trc) {
             {"first-hop", 'f', "NUM", 0, "set initial hop distance, i.e., time-to-live", 0},
             {"max-hop", 'm', "NUM", 0, "set maximal hop count (default: 64)", 0},
             {"port", 'p', "PORT", 0, "use destination PORT port (default: 33434)", 0},
-            {"tries", 't', "NUM", 0, "send NUM probe packets per hop (default: 3)", 0},
+            {"tries", 'q', "NUM", 0, "send NUM probe packets per hop (default: 3)", 0},
             {"wait", 'w', "NUM", 0, "wait NUM seconds for response (default: 3)", 0},
             {"resolve-hostnames", 300, NULL, 0, "resolve hostnames", 0},
             { 0 }
@@ -25,7 +25,7 @@ int init_trc(int ac, char **av, trc_t* trc) {
 
     struct argp argp = {options, parse_opt, NULL, NULL, NULL, NULL, NULL};
 
-    argp_parse(&argp, ac, av, 0, NULL, &trc->opts);
+    argp_parse(&argp, ac, av, 0, NULL, trc);
 
     init_sockets(av, trc);
 
