@@ -1,12 +1,12 @@
 #include "ft_traceroute.h"
 
-static int send_all_probes(trc_t *trc, uint8_t current_ttl, struct sockaddr *addr, socklen_t *len);
+static int  send_all_probes(trc_t *trc, uint8_t current_ttl, struct sockaddr *addr, socklen_t *len);
 
 int traceroute_loop(trc_t* trc) {
-    uint8_t         current_ttl = trc->opts.start_ttl;
-    struct sockaddr_in addr;
-    socklen_t       len = sizeof (addr);
-    bool            reached = false;
+    uint8_t             current_ttl = trc->opts.start_ttl;
+    struct sockaddr_in  addr;
+    socklen_t           len = sizeof (addr);
+    bool                reached = false;
 
     while (!reached && current_ttl < trc->opts.max_ttl) {
         setsockopt(trc->send_sock, IPPROTO_IP, IP_TTL, &current_ttl, sizeof (current_ttl));
@@ -26,7 +26,7 @@ int traceroute_loop(trc_t* trc) {
 static int send_all_probes(trc_t *trc, uint8_t current_ttl, struct sockaddr *addr, socklen_t *len) {
     bool host_printed = false;
 
-    for (int i = 0; i < trc->opts.tries; ++i) {
+    for (u_int i = 0; i < trc->opts.tries; ++i) {
         if (send_probe(trc, addr, len))
             return -1;
 

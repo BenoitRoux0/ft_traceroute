@@ -45,14 +45,19 @@ void ft_bzero(void* ptr, size_t n) {
     }
 }
 
-void clear_trc(trc_t *trc) {
-    if (trc->send_sock != -1) {
-        close(trc->send_sock);
+int	ft_strncmp(const char *s1, const char *s2, size_t n) {
+    size_t	i;
+
+    if (!n)
+        return (0);
+
+    i = 0;
+
+    while (i < n - 1 && s1[i] && s2[i]) {
+        if (s1[i] != s2[i])
+            return ((unsigned char) s1[i] - s2[i]);
+        ++i;
     }
-    if (trc->recv_sock != -1) {
-        close(trc->recv_sock);
-    }
-    if (trc->addr != NULL) {
-        freeaddrinfo(trc->addr);
-    }
+
+    return ((unsigned char) s1[i] - s2[i]);
 }

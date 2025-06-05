@@ -1,10 +1,18 @@
 NAME = ft_traceroute
 
-SRCS = 	src/main.c \
-		src/traceroute/loop.c \
-		src/traceroute/send_probe.c \
-		src/utils.c \
-		src/parse_host.c \
+BASE_SRCS =	src/main.c \
+			src/traceroute/loop.c \
+			src/traceroute/send_probe.c \
+			src/traceroute/clear_trc.c \
+			src/utils.c \
+			src/parse_host.c \
+
+SRCS =		$(BASE_SRCS) \
+			src/traceroute/init_trc.c \
+
+SRCS_BONUS =	$(BASE_SRCS) \
+				src/traceroute/init_trc_bonus.c \
+				src/traceroute/parse_opt.c \
 
 INCS = inc/ft_traceroute.h
 
@@ -12,7 +20,7 @@ OBJS_DIR = .objs
 OBJS_DIR_BONUS = .objs_bonus
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
-OBJS_BONUS = $(SRCS:%.c=$(OBJS_DIR_BONUS)/%.o)
+OBJS_BONUS = $(SRCS_BONUS:%.c=$(OBJS_DIR_BONUS)/%.o)
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
