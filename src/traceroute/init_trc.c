@@ -3,6 +3,7 @@
 static int  print_start_msg(char* hostname, trc_t* trc);
 static void init_sockets(char *const *av, trc_t *trc);
 static void init_addr(trc_t *trc, char *hostname);
+static void print_help(void);
 
 int init_trc(int ac, char **av, trc_t *trc) {
     char *hostname;
@@ -13,7 +14,7 @@ int init_trc(int ac, char **av, trc_t *trc) {
 
     for (int i = 0; i < ac; ++i) {
         if (ft_strncmp(av[i], "--help", 7) == 0)  {
-            dprintf(1, "Help menu\n");
+            print_help();
             exit(0);
         } else {
             hostname = av[i];
@@ -62,4 +63,15 @@ static int  print_start_msg(char* hostname, trc_t* trc) {
     getnameinfo(trc->addr->ai_addr, trc->addr->ai_addrlen, num_buffer, 16, NULL, 0, NI_NUMERICHOST);
 
     return dprintf(1, "traceroute to %s (%s), %d hops max\n", hostname, num_buffer, trc->opts.max_ttl);
+}
+
+static void print_help(void) {
+    dprintf(1, "Usage: ft_traceroute_bonus [OPTION...]\n");
+    dprintf(1, "\n");
+    dprintf(1, "      --help                 Give this help list\n");
+    dprintf(1, "\n");
+    dprintf(1, "Mandatory or optional arguments to long options are also mandatory or optional\n");
+    dprintf(1, "for any corresponding short options.\n");
+    dprintf(1, "\n");
+    dprintf(1, "Report bugs to beroux@student.42lyon.fr.\n");
 }

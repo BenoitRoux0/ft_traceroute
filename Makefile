@@ -26,7 +26,9 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 REF = inetutils-2.0
 
-all:		$(NAME)
+mandatory:	$(NAME)
+
+all:		$(NAME) $(NAME)_bonus
 
 bonus:		$(NAME)_bonus
 

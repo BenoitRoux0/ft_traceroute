@@ -4,6 +4,15 @@ static int  print_start_msg(char* hostname, trc_t* trc);
 static void init_sockets(char *const *av, trc_t *trc);
 static void init_addr(trc_t* trc, char *hostname);
 
+const char *argp_program_bug_address = "beroux@student.42lyon.fr";
+const char *argp_program_version = "traceroute (BR inetutils) -2.0\n"
+                                   "Copyright (C) 2025 beroux, Inc.\n"
+                                   "License WTFPL2: DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE Version 3 or later <https://www.wtfpl.net/txt/copying>.\n"
+                                   "This is free software: you are free to change and redistribute it.\n"
+                                   "There is NO WARRANTY, to the extent permitted by law.\n"
+                                   "\n"
+                                   "Written by Benoit Roux.";
+
 int init_trc(int ac, char **av, trc_t* trc) {
     trc->send_sock = -1;
     trc->recv_sock = -1;
