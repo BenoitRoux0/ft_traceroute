@@ -77,6 +77,7 @@ int     ft_strncmp(const char *s1, const char *s2, size_t n);
 double  get_time_diff(trc_t *trc);
 int     put_time(trc_t* trc);
 int     put_num_host(const struct sockaddr* sockaddr, socklen_t len);
+int     put_host(const struct sockaddr* sockaddr, socklen_t len);
 
 # ifdef BONUS
 int parse_opt(int key, char* arg, struct argp_state* state);

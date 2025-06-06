@@ -19,6 +19,19 @@ int put_num_host(const struct sockaddr* sockaddr, socklen_t len) {
     return dprintf(1, " %s ", num_buffer);
 }
 
+int put_host(const struct sockaddr* sockaddr, socklen_t len) {
+    char host_buffer[257] = { 0 };
+
+    int status = getnameinfo(sockaddr, len, host_buffer, 256, NULL, 0, 0);
+
+    if (status) {
+        dprintf(2, "error: getnameinfo: %s\n", gai_strerror(status));
+        return -1;
+    }
+
+    return dprintf(1, "(%s) ", host_buffer);
+}
+
 double get_time_diff(trc_t *trc) {
     double          secs;
     double          usecs;

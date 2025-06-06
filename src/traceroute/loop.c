@@ -31,7 +31,7 @@ static int send_all_probes(trc_t *trc, uint8_t current_ttl, struct sockaddr *add
             return -1;
 
         if (i == 0)
-            dprintf(1, "%3d  ", current_ttl);
+            dprintf(1, "%3d  ", current_ttl - trc->opts.start_ttl + 1);
 
         if (!FD_ISSET(trc->recv_sock, &trc->set)) {
             dprintf(1, " * ");
@@ -40,6 +40,8 @@ static int send_all_probes(trc_t *trc, uint8_t current_ttl, struct sockaddr *add
 
         if (!host_printed) {
             put_num_host((const struct sockaddr *) addr, (*len));
+            if (trc->opts.resolve)
+                put_host((const struct sockaddr *) addr, (*len));
             host_printed = true;
         }
 
