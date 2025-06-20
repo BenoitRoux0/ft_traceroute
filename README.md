@@ -24,23 +24,23 @@ For the bonus version (with extra options):
 
 ### Options
 
-Options valid for all versions:
+Options available in all versions:
 
-- `--help`                      Give this help list
+- `--help`                      Show the help message
 
 #### Bonus options 🎁
 
 Available only in the bonus version (`ft_traceroute_bonus`):
 
-- `-f, --first-hop=NUM`         set initial hop distance, i.e., time-to-live
-- `-m, --max-hop=NUM`           set maximal hop count (default: 64)
-- `-p, --port=PORT`             use destination PORT port (default: 33434)
-- `-q, --tries=NUM`             send NUM probe packets per hop (default: 3)
-- `--resolve-hostnames`         resolve hostnames
-- `-w, --wait=NUM`              wait NUM seconds for response (default: 3)
-- `-?, --help`                  Give this help list
-- `--usage`                     Give a short usage message
-- `-V, --version`               Print program version
+- `-f, --first-hop=NUM`         Set the initial hop (TTL) value (default: 1)
+- `-m, --max-hop=NUM`           Set the maximum number of hops to probe (default: 64)
+- `-p, --port=PORT`             Set the destination port for probes (default: 33434)
+- `-q, --tries=NUM`             Set the number of probe packets per hop (default: 3)
+- `--resolve-hostnames`         Resolve and display hostnames in addition to IP addresses
+- `-w, --wait=NUM`              Set the timeout in seconds to wait for each response (default: 3)
+- `-?, --help`                  Show the help message
+- `--usage`                     Show a short usage message
+- `-V, --version`               Show program version information
 
 ### Example
 
