@@ -66,7 +66,7 @@ static int  print_start_msg(char* hostname, trc_t* trc) {
 }
 
 static void print_help(void) {
-    dprintf(1, "Usage: ft_traceroute_bonus [OPTION...]\n");
+    dprintf(1, "Usage: ft_traceroute [OPTION...]\n");
     dprintf(1, "\n");
     dprintf(1, "      --help                 Give this help list\n");
     dprintf(1, "\n");
